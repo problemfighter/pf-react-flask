@@ -4,6 +4,18 @@ import subprocess
 directories = ["source-module", "app-module"]
 
 
+def get_git():
+    git = "git"
+    exported_git_path = os.environ.get('git_path')
+    if exported_git_path:
+        git = "\"" + exported_git_path + "\""
+    return git
+
+
+def git_command(command):
+    return get_git() + " " + command
+
+
 def create_directory(path):
     if not os.path.exists(path):
         os.makedirs(path)
@@ -21,12 +33,12 @@ def execute_command(home, command):
 def pull_project(home):
     git_directory = home + "/.git"
     if os.path.exists(git_directory):
-        execute_command(home, "git pull")
+        execute_command(home, git_command("pull"))
 
 
 def clone_project(root, project, url):
     if url != "":
-        command = "git clone " + url + " " + project
+        command = git_command("clone ") + url + " " + project
         execute_command(root, command)
 
 
