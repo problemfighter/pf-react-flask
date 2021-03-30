@@ -33,6 +33,4 @@ instance/
 !/source-module/empty
 app-module/*
 
-static/*
-!static/empty
 *.egg-info/*

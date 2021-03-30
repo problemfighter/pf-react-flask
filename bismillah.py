@@ -1,13 +1,9 @@
 import os
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_cors import CORS
 from pf_sqlalchemy.db.orm import database
 from pfms.flask_pf_marshmallow_swagger import PFMarshmallowSwagger
-from pfms.swagger.pfms_swagger_decorator import simple_get
-from sso.sso_registry import SSORegistry
-from region.module_registry import regionRegistry
-from supplier.module_registry import supplierRegistry
 
 
 env = os.environ.get('env')
@@ -20,25 +16,19 @@ else:
 
 
 database.init_app(app)
-sso_registry = SSORegistry()
 
 with app.app_context():
-    regionRegistry.register_model()
-    supplierRegistry.register_model()
+    pass
 
 pfms_ins = PFMarshmallowSwagger(app)
-app.register_blueprint(user_blueprint)
 
-sso_registry.register_controller(app)
-supplierRegistry.register_controller(app)
 
 CORS(app, resources={r"/api/*": {"origins": "*", "Access-Control-Allow-Origin": "*"}})
 
 
 @app.route('/')
-@simple_get(response_obj=None)
 def bismiallah():
-    return 'Bismillah'
+    return render_template('bismillah.html')
 
 
 if __name__ == '__main__':
