@@ -1,0 +1,10 @@
+
+
+== App Configuration File
+* Name: app_config.py
+* Class Name: AppConfig and should have extend PFRFAppConfigInterface
+
+
+== Module Registry
+* Name: module_name_registry.py
+* Class Name: ModuleNameRegistry must be implement by PFRFModuleConfigInterface

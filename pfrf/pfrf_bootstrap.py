@@ -17,7 +17,7 @@ class Bootstrap:
         return "local"
 
     def _get_app_config(self) -> PFRFAppConfigInterface:
-        app_config = import_from_string("application.app_config.AppConfig", True)
+        app_config = import_from_string("application.app_config.AppConfig", False)
         if app_config:
             if not issubclass(app_config, PFRFAppConfigInterface):
                 raise PfMsException("AppConfig Should be Implementation of PFRFAppConfigInterface")

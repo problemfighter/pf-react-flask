@@ -34,3 +34,5 @@ instance/
 app-module/*
 
 *.egg-info/*
+
+application
