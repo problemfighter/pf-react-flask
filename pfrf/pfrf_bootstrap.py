@@ -1,10 +1,10 @@
 import os
 
+from flask import render_template
 from pfms.common.pfms_exception import PfMsException
 from pfms.flask_pf_marshmallow_swagger import PFMarshmallowSwagger
-
 from pfrf.pfrf_app_config import PFRFAppConfigInterface
-from pfrf.pfrf_utils import import_from_string
+from pfrf.pfrf_utils import import_from_string, is_url_register
 
 env = os.environ.get('env')
 
@@ -41,6 +41,16 @@ class Bootstrap:
     def _init_pf_marshmallow_swagger(self, flask_app):
         PFMarshmallowSwagger(flask_app)
 
+    def _default_home(self):
+        return render_template('bismillah.html')
+
+    def _register_root_url(self, flask_app):
+        is_slash_registered = is_url_register(flask_app, "/")
+        if not is_slash_registered:
+            flask_app.add_url_rule("/", view_func=self._default_home)
+
     def load_app(self, flask_app):
         self._app_bismillah(flask_app)
         self._init_pf_marshmallow_swagger(flask_app)
+        self._register_root_url(flask_app)
+

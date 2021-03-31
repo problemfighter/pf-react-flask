@@ -26,3 +26,10 @@ def import_from_string(import_name: str, silent: bool = False):
             raise ImportStringError(import_name, e).with_traceback(sys.exc_info()[2])
 
     return None
+
+
+def is_url_register(flask_app, url):
+    for url_rule in flask_app.url_map.iter_rules():
+        if url_rule.rule == url:
+            return True
+    return False
