@@ -1,5 +1,4 @@
 import os
-
 from flask import render_template
 from pfms.common.pfms_exception import PfMsException
 from pfms.flask_pf_marshmallow_swagger import PFMarshmallowSwagger
@@ -17,7 +16,7 @@ class Bootstrap:
         return "local"
 
     def _get_app_config(self) -> PFRFAppConfigInterface:
-        app_config = import_from_string("application.app_config.AppConfig", False)
+        app_config = import_from_string("application.app_config.AppConfig", True)
         if app_config:
             if not issubclass(app_config, PFRFAppConfigInterface):
                 raise PfMsException("AppConfig Should be Implementation of PFRFAppConfigInterface")
