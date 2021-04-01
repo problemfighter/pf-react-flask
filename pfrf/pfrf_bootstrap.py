@@ -1,5 +1,6 @@
 import os
 from flask import render_template
+from pf_sqlalchemy.db.orm import database
 from pfms.common.pfms_exception import PfMsException
 from pfms.flask_pf_marshmallow_swagger import PFMarshmallowSwagger
 from pfrf.pfrf_app_config import PFRFAppConfigInterface
@@ -24,18 +25,22 @@ class Bootstrap:
         return PFRFAppConfigInterface()
 
     def _register_environment(self, flask_app, app_config: PFRFAppConfigInterface):
-        environment = app_config.register_env_config(self._get_app_environment())
+        environment = app_config.register_env_config(self._get_app_environment(), flask_app)
         environment_class = "pfrf.pfrf_base_env_config.PFRFBaseEnvConfiguration"
         if environment and isinstance(environment, str):
             environment_class = environment
         flask_app.config.from_object(environment_class)
 
+    def _init_database(self, flask_app):
+        database.init_app(flask_app)
+
     def _app_bismillah(self, flask_app):
         app_config = self._get_app_config()
         self._register_environment(flask_app, app_config)
-        app_config.register_controller(flask_app)
+        self._init_database(flask_app)
         with flask_app.app_context():
             app_config.register_model(flask_app)
+        app_config.register_controller(flask_app)
 
     def _init_pf_marshmallow_swagger(self, flask_app):
         PFMarshmallowSwagger(flask_app)
