@@ -103,8 +103,6 @@ ui_related_libraries = {
 def setup_user_interface():
     clone_pull_setup(ui_base_libraries)
     clone_pull_setup(ui_related_libraries)
-    execute_command("./", "npm install -g yarn")
-    execute_command("./", "yarn install")
 
 
 def start():
