@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-directories = ["source-module", "app-module"]
+directories = ["pf-libraries", "application"]
 
 
 def get_git():
@@ -43,7 +43,9 @@ def clone_project(root, project, url):
 
 
 def setup_project(home):
-    execute_command(home, "python setup.py develop")
+    git_directory = home + "/setup.py"
+    if os.path.exists(git_directory):
+        execute_command(home, "python setup.py develop")
 
 
 def clone_and_setup(root, project, url, path):
@@ -74,7 +76,7 @@ def clone_pull_setup(projects: dict):
 
 
 source_projects = {
-    "dir": "source-module",
+    "dir": "pf-libraries",
     "repositories": {
         "flask-pf-common": "https://github.com/problemfighter/flask-pf-common.git",
         "flask-pf-sqlalchemy": "https://github.com/problemfighter/flask-pf-sqlalchemy.git",
@@ -82,10 +84,33 @@ source_projects = {
     }
 }
 
+ui_base_libraries = {
+    "dir": "./",
+    "repositories": {
+        "user-interface": "https://github.com/problemfighter/react-mui-app.git",
+    }
+}
+
+ui_related_libraries = {
+    "dir": "user-interface/ui-libraries",
+    "repositories": {
+        "react-mui-ui": "https://github.com/problemfighter/react-mui-ui.git",
+        "tm-react": "https://github.com/problemfighter/tm-react.git",
+    }
+}
+
+
+def setup_user_interface():
+    clone_pull_setup(ui_base_libraries)
+    clone_pull_setup(ui_related_libraries)
+    execute_command("./", "npm install -g yarn")
+    execute_command("./", "yarn install")
+
 
 def start():
     clone_pull_setup(source_projects)
     pull_project("./")
+    setup_user_interface()
 
 
 if __name__ == '__main__':

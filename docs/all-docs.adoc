@@ -8,3 +8,13 @@
 == Module Registry
 * Name: module_name_registry.py
 * Class Name: ModuleNameRegistry must be implement by PFRFModuleConfigInterface
+
+
+
+== Project Setup
+* git clone https://github.com/problemfighter/pf-react-flask
+* source venv/Scripts/activate
+* bash zscript/setup-or-pull.sh
+* pip install -r core-requirements.txt
+* git clone https://github.com/problemfighter/pfms-example.git application
+*

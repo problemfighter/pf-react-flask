@@ -1,0 +1,7 @@
+{
+  "packages": [
+    "user-interface/ui-libraries/*",
+    "application/*/user-interface"
+  ],
+  "version": "0.0.0"
+}

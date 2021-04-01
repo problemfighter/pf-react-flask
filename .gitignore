@@ -36,3 +36,10 @@ app-module/*
 *.egg-info/*
 
 application
+pf-libraries
+user-interface
+
+
+node_modules
+*.lock
+*-lock.json
