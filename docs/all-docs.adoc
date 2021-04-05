@@ -19,6 +19,7 @@
 * git clone https://github.com/problemfighter/pfms-example.git application
 * cd application
 * python setup.py develop
+* cd ..
 * npm install -g yarn
 * yarn install
 * yarn start-my-app
