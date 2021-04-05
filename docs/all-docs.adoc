@@ -31,6 +31,7 @@
 * Create module_name/__init__.py, and module_name/module_name/__init__.py
 * Copy the module_name/setup.py file from the template.
 ** Change the module name
+* Create directory called *user-interface* for UI.
 
 
 == App Configuration File
