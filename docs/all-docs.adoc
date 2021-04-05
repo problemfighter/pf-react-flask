@@ -17,4 +17,6 @@
 * bash zscript/setup-or-pull.sh
 * pip install -r core-requirements.txt
 * git clone https://github.com/problemfighter/pfms-example.git application
-*
+* npm install -g yarn
+* yarn install
+* yarn start-my-app
