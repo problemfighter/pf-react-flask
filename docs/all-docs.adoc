@@ -23,6 +23,14 @@
 * For Run the UI ``yarn start-rma`` with the GitBash.
 
 
+== Create Module
+* Create a directory called *application*
+* Create file called __init__.py
+* Create file called app_config.py : This is the configuration file.
+* Copy configuration directory and files from Sample
+* Create module_name/__init__.py, and module_name/module_name/__init__.py
+* Copy the module_name/setup.py file from the template.
+** Change the module name
 
 
 == App Configuration File
