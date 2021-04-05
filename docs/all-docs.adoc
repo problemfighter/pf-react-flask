@@ -1,3 +1,28 @@
+= PFRF Framework
+
+
+== Prerequisite
+* Python 3.9.x + : https://www.python.org/downloads/
+* Node 14.16.x + (LTS) : https://nodejs.org/en/download/
+* GitBash : https://git-scm.com/downloads
+
+== How to Run the PFRF Framework 0.0.1?
+
+* Goto the repository: https://github.com/problemfighter/pf-react-flask
+* Clone the Project: ``git clone https://github.com/problemfighter/pf-react-flask``
+* Go to the directory, the default directory after clone. *pf-react-flask*. ``cd pf-react-flask``
+* If you use, PyCharm then just open the project as Flask Project.
+* If you not using PyCharm, then create virtual environment using command ``python -m venv venv``
+** If ``virtualenv`` not available then please install virtualenv by ``pip install virtualenv``
+* Run ``bash zscript/setup-or-pull.sh`` from GitBash. It will download and install all dependent, dependency. (For Windows)
+* Run ``npm install -g yarn && yarn install`` from GitBash.
+* Add the source from the command prompt by ``source venv/Scripts/activate`` (For Windows) using GitBash
+* Install Other libraries using GitBash ``pip install -r core-requirements.txt``
+* For Run the application execute the command ``python bismillah.py``. URL: http://127.0.0.1:5000/
+* Please open another GitBash with the seme directory, for run the UI.
+* For Run the UI ``yarn start-rma`` with the GitBash.
+
+
 
 
 == App Configuration File
