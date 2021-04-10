@@ -1,8 +1,8 @@
 import os
 import subprocess
 
-directories = ["pf-libraries", "application"]
-
+application_dir = "application"
+pf_libraries_dir = "pf-libraries"
 
 def get_git():
     git = "git"
@@ -76,7 +76,7 @@ def clone_pull_setup(projects: dict):
 
 
 source_projects = {
-    "dir": "pf-libraries",
+    "dir": pf_libraries_dir,
     "repositories": {
         "flask-pf-common": "https://github.com/problemfighter/flask-pf-common.git",
         "flask-pf-sqlalchemy": "https://github.com/problemfighter/flask-pf-sqlalchemy.git",
@@ -100,6 +100,19 @@ ui_related_libraries = {
 }
 
 
+def pull_and_setup_application_modules():
+    print("\n\n\n\n-------------------------------------------------------------------------------------")
+    print("Taking Application Module Pull")
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    if os.path.exists(application_dir):
+        pull_project(application_dir)
+        for directory in os.listdir(application_dir):
+            path = os.path.join(application_dir, directory)
+            if os.path.isdir(path) and os.path.exists(os.path.join(path, ".git")):
+                print("Taking pull of " + directory)
+                pull_project(path)
+
+
 def setup_user_interface():
     clone_pull_setup(ui_base_libraries)
     clone_pull_setup(ui_related_libraries)
@@ -109,6 +122,7 @@ def start():
     clone_pull_setup(source_projects)
     pull_project("./")
     setup_user_interface()
+    pull_and_setup_application_modules()
 
 
 if __name__ == '__main__':
