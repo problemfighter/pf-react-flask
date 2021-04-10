@@ -33,7 +33,6 @@ instance/
 !/source-module/empty
 app-module/*
 
-*egg-info
 
 application
 pf-libraries
