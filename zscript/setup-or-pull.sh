@@ -20,4 +20,5 @@ fi
 
 source "$VENV"
 python zscript/clone-pull.py
+pip install -r core-requirements.txt
 deactivate
