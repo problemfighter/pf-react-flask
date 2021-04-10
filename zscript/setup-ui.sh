@@ -7,7 +7,7 @@ echo "Installing yarn";
 npm install -g yarn
 
 echo "Installing Lerna";
-npm i -D lerna
+npm install -g lerna
 
 echo "Installing Dependency";
 yarn install
