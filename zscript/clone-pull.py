@@ -81,6 +81,7 @@ source_projects = {
         "flask-pf-common": "https://github.com/problemfighter/flask-pf-common.git",
         "flask-pf-sqlalchemy": "https://github.com/problemfighter/flask-pf-sqlalchemy.git",
         "flask-pf-marshmallow-swagger": "https://github.com/problemfighter/flask-pf-marshmallow-swagger.git",
+        "pf-python-io": "https://github.com/problemfighter/pf-python-io.git",
     }
 }
 
