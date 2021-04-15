@@ -82,7 +82,7 @@ source_projects = {
         "flask-pf-sqlalchemy": "https://github.com/problemfighter/flask-pf-sqlalchemy.git",
         "flask-pf-marshmallow-swagger": "https://github.com/problemfighter/flask-pf-marshmallow-swagger.git",
         "pf-python-io": "https://github.com/problemfighter/pf-python-io.git",
-        "pf-python-communication": "https://github.com/problemfighter/pf-python-communication.git",
+        "pf-flask-communication": "https://github.com/problemfighter/pf-flask-communication.git",
     }
 }
 

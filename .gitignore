@@ -23,7 +23,7 @@ htmlcov/
 .coverage
 .coverage.*
 *,cover
-
+tmp
 
 __pycache__/
 instance/
