@@ -7,7 +7,10 @@ app = Flask(__name__)
 pfrf_bootstrap = Bootstrap()
 pfrf_bootstrap.load_app(app)
 
-CORS(app, resources={r"/api/*": {"origins": "*", "Access-Control-Allow-Origin": "*"}})
+CORS(app, resources={
+    r"/api/*": {"origins": "*", "Access-Control-Allow-Origin": "*"},
+    r"/static/*": {"origins": "*", "Access-Control-Allow-Origin": "*"}
+})
 
 
 if __name__ == '__main__':

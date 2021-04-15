@@ -24,6 +24,8 @@ htmlcov/
 .coverage.*
 *,cover
 tmp
+/static/*
+!/static/assets
 
 __pycache__/
 instance/
