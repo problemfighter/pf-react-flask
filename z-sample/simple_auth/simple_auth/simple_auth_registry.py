@@ -1,7 +1,7 @@
 from simple_auth.controller.authentication_controller import auth_controller
 
 
-class CodeGenTestRegistry:
+class SimpleAuthRegistry:
 
     def register_model(self, flask_app):
         pass
@@ -10,4 +10,4 @@ class CodeGenTestRegistry:
         flask_app.register_blueprint(auth_controller)
 
 
-code_gen_test_registry = CodeGenTestRegistry()
+simple_auth_registry = SimpleAuthRegistry()

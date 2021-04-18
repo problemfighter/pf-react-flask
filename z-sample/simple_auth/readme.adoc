@@ -1,0 +1,7 @@
+simple_auth_registry.register_controller(flask_app)
+
+
+
+== source extension installation
+* Install Mode, Change will not effect: python setup.py install
+* Development Mode, change effect immediately: python setup.py develop
