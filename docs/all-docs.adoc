@@ -45,15 +45,7 @@
 
 
 
-== Project Setup
-* git clone https://github.com/problemfighter/pf-react-flask
-* source venv/Scripts/activate
-* bash zscript/setup-or-pull.sh
-* pip install -r core-requirements.txt
-* git clone https://github.com/problemfighter/pfms-example.git application
-* cd application
-* python setup.py develop
-* cd ..
-* npm install -g yarn
-* yarn install
-* yarn start-my-app
+== Start Modularize Programming
+* Create a directory called *application*
+* Copy z-sample/app_config.py to the application directory
+* Copy z-sample/config to the application directory
