@@ -1,0 +1,10 @@
+
+
+Allow Null value in DTO ::
+allow_none=True
+
+Table Header ::
+tableHeaderDefinition.add( "Package Name", "packageName", true, "Package Name", Align.left);
+
+Table Row ::
+<TableCell align="left">{row.name}</TableCell>
