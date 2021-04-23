@@ -110,9 +110,9 @@ def pull_and_setup_application_modules():
         pull_project(application_dir)
         for directory in os.listdir(application_dir):
             path = os.path.join(application_dir, directory)
-            if os.path.isdir(path) and os.path.exists(os.path.join(path, ".git")):
-                print("Taking pull of " + directory)
-                pull_project(path)
+            if os.path.isdir(path):
+                print("Taking pull and setup of " + directory)
+                pull_setup_project(path)
 
 
 def setup_user_interface():
