@@ -8,3 +8,47 @@ tableHeaderDefinition.add( "Package Name", "packageName", true, "Package Name", 
 
 Table Row ::
 <TableCell align="left">{row.name}</TableCell>
+
+Static class with methods:
+```
+export default class CommonEnumDropdown {
+
+    public static readonly personOrganization = [
+        {name: "Organization", value: "org"},
+        {name: "Individual", value: "ind"},
+    ]
+}
+```
+
+
+Default Props ::
+```
+    static defaultProps = {
+        maxWidth: DialogMaxWidth.SMALL,
+        fullWidth: false,
+        fullScreen: false,
+        autoClose: false,
+    };
+```
+
+
+
+== SQL Alchemy
+
+Select Column ::
+```
+result = SomeModel.query.with_entities(SomeModel.col1, SomeModel.col2)
+```
+
+
+JOIN Table with Condition ::
+```
+session = Session()
+session.query(Table1).join(Table2, and_(Table1.address==Table2.address, Table1.zip == '90210'), isouter=True)
+```
+
+
+Loading ::
+```
+contains_eager
+```
