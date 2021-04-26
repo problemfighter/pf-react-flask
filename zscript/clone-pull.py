@@ -43,8 +43,8 @@ def clone_project(root, project, url):
 
 
 def setup_project(home):
-    git_directory = home + "/setup.py"
-    if os.path.exists(git_directory):
+    module_directory = home + "/setup.py"
+    if os.path.exists(module_directory):
         execute_command(home, "python setup.py develop")
 
 
