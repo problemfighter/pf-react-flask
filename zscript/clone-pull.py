@@ -111,7 +111,9 @@ def pull_and_setup_application_modules():
         for directory in os.listdir(application_dir):
             path = os.path.join(application_dir, directory)
             if os.path.isdir(path):
+                print("\n\n\n\n################################################################################")
                 print("Taking pull and setup of " + directory)
+                print("################################################################################")
                 pull_setup_project(path)
 
 
