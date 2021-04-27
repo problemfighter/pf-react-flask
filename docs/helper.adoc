@@ -31,6 +31,26 @@ Default Props ::
     };
 ```
 
+For Loop::
+```
+data.supplierGroup.forEach((group: any, idx: any) => {
+    ids.push(group.id)
+});
+```
+
+set default value ::
+```
+this.setDefaultValues({
+                sex: "notSpecified",
+                type: "org",
+            })
+```
+
+
+
+== Register in Flask Module
+flask_app.register_blueprint(auth_controller)
+address_model.create_all()
 
 
 == SQL Alchemy
