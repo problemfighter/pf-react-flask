@@ -1,4 +1,6 @@
 
+Enum Field::
+unit = database.Column("unit", database.Enum(ItemUnit), default=ItemUnit.SINGLE, nullable=False)
 
 Allow Null value in DTO ::
 allow_none=True
@@ -71,4 +73,24 @@ session.query(Table1).join(Table2, and_(Table1.address==Table2.address, Table1.z
 Loading ::
 ```
 contains_eager
+```
+
+GET params from request ::
+```
+query_param=[("supplier_group_id", integer, True)]
+model_id = self.request().get_required_query_param_value("supplier_group_id", message="Please enter supplier_group_id")
+```
+
+
+Marshmallow Custom field::
+```
+    poName = fields.Method(serialize="getPOName")
+
+    def getPOName(self, obj):
+        if obj and obj.type == POType.INDIVIDUAL:
+            name = obj.firstName
+            if obj.lastName:
+                name += " " + obj.lastName
+            return name
+        return obj.name
 ```
