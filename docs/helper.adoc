@@ -11,6 +11,25 @@ tableHeaderDefinition.add( "Package Name", "packageName", true, "Package Name", 
 Table Row ::
 <TableCell align="left">{row.name}</TableCell>
 
+Resource Panel ::
+```
+// @ts-ignore
+let staticBase = window.appConfig.getStaticBaseURL()
+let id = ApiUtil.getParamsDataFromRouter(this.props.route, "id");
+
+<ResourceUploadManager
+route={_this.props.route}
+inputName="name"
+uploadUrl={SupplierUrlMapping.API.UPLOAD}
+listUrl={SupplierUrlMapping.API.UPLOAD_LIST + id}
+deleteUrl={SupplierUrlMapping.API.UPLOAD_DELETE}
+imgSrcMiddleUrl={staticBase + "supplier/"}
+uploadParams={{
+    "type": "img",
+    "supplierId": id,
+}}/>
+```
+
 Static class with methods:
 ```
 export default class CommonEnumDropdown {
