@@ -13,6 +13,15 @@ Table Row ::
 
 Resource Panel ::
 ```
+    public getStaticBaseURL(): string {
+        return "static/goods-mama/";
+    }
+
+const API_SUPPLIER_RESOURCE_URL = "api/v1/supplier-resource/"
+UPLOAD: API_SUPPLIER_RESOURCE_URL + "upload-supplier-resource",
+UPLOAD_LIST: API_SUPPLIER_RESOURCE_URL + "get-supplier-resource-list/",
+UPLOAD_DELETE: API_SUPPLIER_RESOURCE_URL + "delete/",
+
 // @ts-ignore
 let staticBase = window.appConfig.getStaticBaseURL()
 let id = ApiUtil.getParamsDataFromRouter(this.props.route, "id");
@@ -30,7 +39,16 @@ uploadParams={{
 }}/>
 ```
 
-Static class with methods:
+global config ::
+```
+import AppConfig from "tm-react/src/app/config/app-config";
+declare global {
+    interface Window { appConfig: AppConfig; }
+}
+window.appConfig = appConfig
+```
+
+Static class with methods::
 ```
 export default class CommonEnumDropdown {
 
