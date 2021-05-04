@@ -1,4 +1,12 @@
 
+React URL Registry ::
+config-registry
+```
+    public static registerUrlMappings(trLayoutInfoData: TRLayoutInfoData): TRLayoutInfoData {
+        return trLayoutInfoData;
+    }
+```
+
 Enum Field::
 unit = database.Column("unit", database.Enum(ItemUnit), default=ItemUnit.SINGLE, nullable=False)
 
